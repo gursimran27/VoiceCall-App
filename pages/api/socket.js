@@ -22,11 +22,6 @@ const SocketHandler = (req, res) => {
                 socket.broadcast.to(roomId).emit('user-toggle-audio', userId)
             })
 
-            socket.on('user-toggle-video', (userId, roomId) => {
-                socket.join(roomId)
-                socket.broadcast.to(roomId).emit('user-toggle-video', userId)
-            })
-
             socket.on('user-leave', (userId, roomId) => {
                 socket.join(roomId)
                 socket.broadcast.to(roomId).emit('user-leave', userId)
